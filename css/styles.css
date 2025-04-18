@@ -1,0 +1,647 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif; /* Changed to Inter as used in prototype image */
+    margin: 0;
+    padding: 0; /* Ensure no default padding */
+    background-color: #fff; /* Changed to white as requested */
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+a {
+    color: #e6a563; /* Retained from your CSS */
+    text-decoration: none; /* Added for consistency */
+}
+a:hover {
+    opacity: 0.8;
+}
+h2 {
+    text-align: center;
+    color: #ff69b4; /* Pink color for headings as per prototype */
+}
+img {
+    width: 100%;
+    height: auto; /* Added auto to maintain aspect ratio */
+}
+/**Header**/
+header {
+    background-color: #efefef; /* Retained from your CSS */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow as per prototype */
+}
+header a {
+    text-decoration: none;
+    color: #000; /* Retained from your CSS */
+}
+header a:hover {
+    color: #e6a563; /* Retained from your CSS */
+}
+header .container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+header .container > a:first-child {
+    width: 250px;
+    margin-right: auto;
+}
+header ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0; /* Ensure no default padding */
+}
+.button {
+    background-color: #e6a563; /* Retained from your CSS */
+    border-radius: 10px; /* Retained from your CSS */
+    padding: 5px 10px;
+    color: #000; /* Ensure text color is readable */
+}
+.button:hover {
+    background-color: #fff; /* Retained from your CSS */
+}
+nav li {
+    margin: 0 1em;
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.sub-menu {
+    position: absolute;
+    left: 0;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px; /* Adjusted gap */
+    background-color: #fff;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    padding: 10px 20px 20px 10px;
+    align-items: flex-start;
+    display: none;
+    z-index: 100; /* Ensure dropdown is above other content */
+}
+.sub-menu li {
+    padding: 0;
+}
+nav li:hover > .sub-menu,
+nav li > .sub-menu:hover {
+    display: flex;
+}
+.navTogglerMenu, .navToggler {
+    display: none;
+}
+
+/** Contact Page Specific Styles **/
+.contact-page-content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 40px; /* Space between columns */
+    justify-content: center; /* Center content when wrapped */
+}
+
+/* Contact Info Section (now a sibling again) */
+.contact-info {
+    flex: 1; /* Allows section to grow */
+    min-width: 250px; /* Minimum width before wrapping */
+    line-height: 1.6; /* Added line height for readability */
+    background-color: #fff; /* Added white background */
+    padding: 30px; /* Added padding similar to form */
+    border-radius: 8px; /* Added border-radius */
+    /* Removed box-shadow as requested */
+    /* margin-bottom: 20px; Removed margin-bottom as gap handles spacing */
+}
+
+.contact-info address {
+    font-style: normal; /* Remove default address italic style */
+    text-align: left; /* Default left align */
+}
+
+
+.contact-form-container {
+    flex: 2; /* Allows form to grow more than info section */
+    min-width: 300px; /* Minimum width before wrapping */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    /* Removed box-shadow as requested */
+    /* display: flex; Removed flex as children are now grid items */
+    /* flex-direction: column; Removed flex-direction */
+}
+
+.contact-form-container h2 {
+     margin-top: 0;
+     margin-bottom: 20px; /* Restore margin below heading */
+     text-align: center; /* Center in the form section */
+     color: #000; /* Changed to black as requested */
+}
+
+.contact-form-container .required-note {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #e74c3c; /* Red color */
+}
+
+.contact-form-container form {
+    /* No specific form styling needed here */
+}
+
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px; /* Space between grid items */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Span across two columns */
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Styling for Input Fields, Select, Textarea */
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+/* Specific styling for optional organization field */
+.form-group input[name="organization"] {
+     border-color: #2ecc71; /* Green border for optional */
+}
+
+/* Checkbox and Radio Button Styling */
+ .checkbox-group label,
+ .radio-group label {
+     display: block; /* Stack options vertically */
+     margin-bottom: 5px;
+     font-weight: normal; /* Labels for options are not bold */
+ }
+
+ .checkbox-group input[type="checkbox"],
+ .radio-group input[type="radio"] {
+     margin-right: 5px;
+ }
+
+/* Validation Styling */
+/* Style for required fields when they are empty or invalid */
+.form-group input[type="text"]:required:invalid,
+.form-group input[type="tel"]:required:invalid,
+.form-group input[type="email"]:required:invalid,
+.form-group textarea:required:invalid { /* Added textarea if it were required */
+    border-color: #e74c3c; /* Red border */
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+ /* Style for required fields when they are valid */
+.form-group input[type="text"]:required:valid,
+.form-group input[type="tel"]:required:valid,
+.form-group input[type="email"]:required:valid,
+.form-group textarea:required:valid { /* Added textarea if it were required */
+    border-color: #2ecc71; /* Green border */
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+}
+
+/* Style for optional fields (like organization) when they are filled */
+ .form-group input[name="organization"]:valid {
+     border-color: #2ecc71; /* Green border */
+     box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+ }
+
+/* Submit Button Styling */
+.form-group input[type="submit"] {
+    background-color: #fff; /* Changed to white as requested */
+    color: #000; /* Changed to black as requested */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: span 2; /* Make button span across two columns */
+    margin-top: 20px;
+    text-transform: uppercase; /* Uppercase text as per prototype */
+    font-weight: 700; /* Bold text */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow like prototype button */
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #eee; /* Slightly darker white on hover */
+}
+
+/**Home Page**/
+/* Retained your existing home page styles */
+body.home {
+    background-color: #efefef;
+}
+.hero {
+    background-color: #FFCF83;
+}
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+}
+.hero img {
+    width: 300px;
+}
+.hero .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.feature-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 20px;
+}
+.feature-block {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    flex: auto;
+    width: 32%;
+}
+.testimonials {
+    background-color: #222e50;
+    padding-bottom: 30px;
+}
+.testimonials h2 {
+    color: #fff;
+    text-align: center;
+}
+.testimonial-container {
+    display: flex;
+    gap: 50px;
+}
+.testimonial-block {
+    background-color: #fff;
+    padding: 20px;
+    flex: auto;
+    width: 33%;
+}
+.team {
+    padding-bottom: 20px;
+}
+.team img {
+    width: 80px;
+}
+.team-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.team-block {
+    text-align: center;
+    width: 25%;
+}
+/**About Page**/
+.about .container {
+    max-width: 900px;
+}
+.about-block {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.about-block img {
+    width: 80px;
+    height: 80px;
+}
+/**Community Page**/
+.community {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 30px;
+    max-width: 1000px;
+}
+.event-block {
+    border: 1px solid #efefef;
+    box-shadow: 10px 10px 10px #efefef;
+    text-align: center;;
+}
+.event-block img {
+    width: 100%;
+}
+.event-block h3, .event-block p {
+    padding: 0 20px;
+}
+.event-block.featured {
+    grid-column: span 3;
+    display: grid;
+    grid-template-areas:
+    "image title"
+    "image text";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 20px;
+}
+.event-block.featured img {
+    grid-area: image;
+}
+.event-block.featured h3 {
+    grid-area: title;
+    text-align: left;
+}
+.event-block.featured p {
+    grid-area: text;
+    text-align: left;
+}
+.event-block span {
+    font-style: italic;
+    color: #787878;
+    font-size: 0.9em;;
+}
+.event-block p {
+    padding-bottom: 20px;
+}
+/**Feature Page**/
+.feature-page-block {
+    border: 1px solid #efefef;
+    padding: 20px;
+    border-radius: 20px;
+}
+.feature-page-block h3 {
+    text-align: center;
+}
+.feature-page-block img {
+    height: 200px;
+    object-fit: cover;
+}
+/**Footer**/
+footer {
+    text-align: center;
+    background-color: #D9D9D9; /* Retained from your CSS */
+    padding: 20px;
+    margin-top: 40px; /* Added margin top */
+}
+footer img {
+    width: 35px;
+    margin: 0 5px; /* Added margin between social icons */
+}
+footer div {
+    margin-bottom: 10px; /* Space between icons and text */
+}
+
+/**Tablet Styles**/
+@media only screen and (max-width: 1040px) {
+    .community {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .event-block.featured {
+        grid-column: span 2;
+    }
+    .features-page .feature-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .features-page .feature-page-block {
+        width: 40%;
+    }
+}
+
+/**Mobile Styles**/
+@media only screen and (max-width: 767px) {
+    header .container {
+        /* Consolidated rules and removed flex-wrap: wrap */
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+        min-height: 60px; /* Added min-height for consistent vertical alignment */
+    }
+
+    header img {
+        width: 200px;
+    }
+
+    header nav {
+        position: absolute;
+        width: 100%;
+        /* Changed top to 100% for better positioning below header */
+        top: 100%;
+        left: 0;
+        display: none;
+        z-index: 99; /* Ensure nav is below dropdown */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        background-color: #fff; /* Changed background to white */
+        padding: 10px 0;
+        border-top: 1px solid #efefef; /* Adjusted border color for contrast */
+    }
+
+    header nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #efefef; /* Adjusted border color for contrast */
+        padding: 10px 0;
+        margin: 5px 0; /* Adjusted margin */
+    }
+
+    header nav li:last-child {
+         border-bottom: none;
+         padding-bottom: 10px;
+         margin-bottom: 0;
+    }
+
+    header .button {
+        width: 100%;
+        border-radius: 0;
+        display: block;
+        padding: 10px;
+    }
+
+    .navTogglerMenu, .navToggler {
+        display: block;
+    }
+
+    .navTogglerMenu img {
+        width: 25px;
+    }
+
+    .navToggler:checked ~ nav {
+        display: block;
+    }
+
+    .navToggler, .menuClose, .navToggler:checked ~ .navTogglerMenu .menuOpen {
+        display: none;
+    }
+
+    .navToggler:checked ~ .navTogglerMenu .menuClose {
+        display: block;
+    }
+
+    .sub-menu {
+        display: flex;
+        position: relative;
+        border-radius: 0;
+        gap: 10px; /* Adjusted gap */
+        padding: 10px;
+        margin-top: 10px; /* Adjusted margin */
+    }
+
+    .hero .container {
+        display: block;
+        text-align: center;
+    }
+    .hero .hero-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .feature-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature-block {
+        width: 100%;
+    }
+    .testimonial-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .testimonial-block {
+        width: 100%;
+    }
+    .team-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .about {
+        text-align: center;
+    }
+    .about-container {
+        gap: 50px;
+    }
+    .about-block {
+        flex-direction: column;
+    }
+    .community {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .event-block.featured {
+        grid-column: span 1; /* Adjusted for single column */
+        display: flex; /* Changed to flex for mobile stacking */
+        flex-direction: column;
+        grid-template-areas: none; /* Reset grid areas */
+    }
+    .event-block.featured img {
+         width: 100%; /* Ensure image takes full width */
+         height: auto;
+         margin-bottom: 10px; /* Add space below image */
+    }
+     .event-block.featured h3,
+     .event-block.featured p {
+         text-align: center; /* Center text for mobile */
+         padding: 0 10px; /* Adjust padding */
+     }
+
+    .features-page .feature-container {
+        display: block;
+    }
+    .features-page .feature-page-block {
+        width: 100%;
+    }
+    .community {
+        display: flex;
+        flex-direction: column;
+    }
+    /* Removed redundant featured block flex style */
+
+    /* Contact Page Mobile Styles */
+    @media only screen and (max-width: 767px) {
+        .contact-page-content {
+            flex-direction: column; /* Stack columns vertically */
+            gap: 20px; /* Reduce gap */
+        }
+
+        /* Order properties removed to revert to HTML source order */
+        .contact-form-container {
+            min-width: unset; /* Remove min-width constraint */
+            padding: 20px; /* Reduce padding */
+        }
+
+        .contact-form-container h2 {
+             text-align: center; /* Center heading */
+             margin-bottom: 10px; /* Space below heading */
+        }
+
+        .contact-form-container .required-note {
+             text-align: left; /* Align note left on mobile */
+        }
+
+        .contact-info {
+            min-width: unset; /* Remove min-width constraint */
+            text-align: left; /* Changed to left for mobile */
+            padding: 20px; /* Adjust padding for mobile */
+            background-color: #fff; /* Ensure white background */
+            border-radius: 8px; /* Keep border-radius */
+            /* No box-shadow as requested */
+        }
+
+        .contact-info address {
+             font-style: normal; /* Remove default address italic style */
+             text-align: left; /* Ensure address text is left-aligned */
+        }
+
+        .form-grid {
+             grid-template-columns: 1fr; /* Single column layout */
+        }
+
+         .form-group.full-width,
+         .form-group input[type="submit"] {
+             grid-column: span 1; /* Revert to single column span */
+         }
+
+         footer {
+             padding: 15px; /* Reduce footer padding */
+         }
+         footer img {
+             width: 30px; /* Adjust social icon size */
+         }
+         footer p {
+             font-size: 0.9em; /* Adjust footer text size */
+         }
+    }
+}
